@@ -17,7 +17,7 @@ export default function Footer()
                 <footer className="container mx-auto">
                     <div className="grid md:grid-cols-4 grid-cols-2 md:gap-5 gap-3 md:px-24 px-12 my-12">
                         <section>
-                            <h4>General Resources</h4>
+                            <h4>General Resourcess</h4>
                             <ul>
                                 <li>A</li>
                                 <li>b</li>
