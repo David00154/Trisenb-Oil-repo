@@ -1,9 +1,15 @@
+import {useState} from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
+import GalleryComponent  from '../components/Gallery';
 
-export default function Home() {
+
+export default function Home() 
+{
+  let [images] = useState(['/img1.jpg', '/img2.jpg', '/img3.jpg', '/img4.jpg', '/img5.jpg', '/img6.jpg', '/img7.jpg'])
   return (
     <>
       <div className={'md:mt-3 mt-24'}>
@@ -15,15 +21,23 @@ export default function Home() {
         <Header class="">
           <h1 className={[styles.title]}>
           Welcome to 
-            <a className="text-black" href="https://www.trisenboilservices.com">Trisenb Oil Services Nig. Ltd</a>
+            <a className="text-black" href="https://www.trisenboilservices.com"> Trisenb Oil Services Nig. Ltd</a>
             </h1>
               <p className="text-center leading-6 text-gray-500 md:text-xl text-base md:mx-24 mx-5 my-5 font-normal">
               Precision Calibration Centre with National / International Traceability for Temperature, Dimensional, Pressure, Integrity Testing / Leak Detection and Mechanical Engineering Services.
               </p>
               <div className="flex md:flex-row flex-col items-center">
-                <a className="bg-blue-600 px-6 py-3 mx-5 cursor-pointer text-white text-center rounded-md text-lg md:mr-5 font-normal hover:shadow-md hover:bg-blue-700">Know More</a>
+                <Link href={'/about'}>
+                  <a className="bg-blue-600 px-6 py-3 mx-5 cursor-pointer text-white text-center rounded-md text-lg md:mr-5 font-normal hover:shadow-md hover:bg-blue-700">
+                    Know More
+                    </a>
+                </Link>
 
-                <a className="bg-gray-100 px-6 py-3 cursor-pointer mx-5 text-gray-500 text-center shadow-md rounded-md md:m-0 mt-5 text-lg font-normal hover:bg-gray-200">Our Services</a>
+                <Link href={'/services'}>
+                  <a className="bg-gray-100 px-6 py-3 cursor-pointer mx-5 text-gray-500 text-center shadow-md rounded-md md:m-0 mt-5 text-lg font-normal hover:bg-gray-200">
+                    Our Services
+                    </a>
+                </Link>
               </div>
         </Header>
 
@@ -44,10 +58,10 @@ export default function Home() {
               </div>
             </section>
             <section className={'mt-16 md:px-24 px-4'}>
-              <div className="grid md:grid-rows-1 grid-rows-4 md:grid-cols-4 md:gap-8 gap-y-4">
-                <div className="text-left">
+              <div className="grid md:grid-rows-1 grid-rows-4 md:grid-cols-4 md:gap-4 gap-y-3">
+                <div className="text-center">
                 <h3 className="font-medium text-2xl">TECHNIQUE.</h3>
-                <p className="my-5 md:text-lg text-md font-normal leading-6">
+                <p className="my-5 md:text-lg text-md text-left font-normal leading-6">
                     <span>1</span> Equipment  verification
                     <br />
                    <span>-</span> Clearly identified.
@@ -62,29 +76,39 @@ export default function Home() {
                    <br />
                    <span>-</span> Connections verified during ...
                 </p>
-    
-                <a  href="/about/#technique" className="px-3 py-2 text-center bg-blue-600 text-lg text-white font-normal rounded-md">More &gt;&gt;</a>
+                  <Link href={'/about/#technique'}>
+                    <a className="px-3 py-2 text-center bg-blue-600 text-lg text-white font-normal rounded-md">
+                      More &gt;&gt;
+                    </a>
+                  </Link>
                 </div>
-                <div className="text-left">
+                <div className="text-center">
                   <h3 className="font-medium text-2xl">COMPANY AT A GLANCE.</h3>
-                  <p className="my-5 md:text-lg text-md font-normal leading-6">
+                  <p className="my-5 md:text-lg text-left text-md font-normal leading-6">
                       Trisenb Oil Services is a progressive company and promoted by a group of qualified Engineers and Technicians having rich experience of over 17 years in calibration, testing and Mechanical Engineering services. 
 
                       Trisenb Oil Services has more than 10 clients in Nigeria. The company ...
                       </p>
-                  <a className="px-3 py-2 text-center bg-blue-600 cursor-pointer text-lg text-white font-normal rounded-md">More &gt;&gt;</a>
+                      <Link href={'/about/#company-at-a-glance'}>
+                        <a className="px-3 py-2 text-center bg-blue-600 text-lg text-white font-normal rounded-md">
+                          More &gt;&gt;
+                        </a>
+                      </Link>
                 </div>
-                <div className="text-left">
+                <div className="text-center">
                   <h3 className="font-medium text-2xl">OCCUPATIONAL HEALTH POLICY.</h3>
-                  <p className="my-5 md:text-lg text-md font-normal leading-6">
+                  <p className="my-5 md:text-lg text-left text-md font-normal leading-6">
                       It is our policy to help Trisenb employees to care for their own health. As regards occupational health, the policy promotes a workplace that protect the health of Trisenb employees and the surrounding community. The policy emphasizes ...
                   </p>
-                    <a className="px-3 py-2 text-center bg-blue-600 cursor-pointer text-lg text-white font-normal rounded-md">More &gt;&gt;
+                  <Link href={'/about/#occupational-health-policy'}>
+                    <a className="px-3 py-2 text-center bg-blue-600 text-lg text-white font-normal rounded-md">
+                      More &gt;&gt;
                     </a>
+                  </Link>
                 </div>
-                <div className="text-left">
+                <div className="text-center">
                   <h3 className="font-medium text-2xl">VESSEL INTERNAL INSPECTION.</h3>
-                  <p className="my-5 md:text-lg text-md font-normal leading-6">
+                  <p className="my-5 md:text-lg text-left text-md font-normal leading-6">
                       <span>These includes:</span>
                       <br />
                       Pressure vessel internal components inspection of baffle, weir and vane distributors
@@ -94,8 +118,11 @@ export default function Home() {
                       Scrubber instrument air distribution system ...
 
                   </p>
-                    <a className="px-3 py-2 text-center bg-blue-600 cursor-pointer text-lg text-white font-normal rounded-md">More &gt;&gt;
+                  <Link href={'/services/#vessel-internal-inspection'}>
+                    <a className="px-3 py-2 text-center bg-blue-600 text-lg text-white font-normal rounded-md">
+                      More &gt;&gt;
                     </a>
+                  </Link>
                 </div>
               </div>
             </section>
@@ -155,13 +182,13 @@ export default function Home() {
                     </p>
                 </div>
                 <div className="our-partners">
-                  <img src="/images/img1.jpg" />
+                  <img className={'h-20 w-px'} src="/images/img1.jpg" />
+                  <img className={'h-px w-px'} src="/images/img2.jpg" />
+                  <img className={'h-px w-px'} src="/images/img3.jpg" />
+                  <img className={'h-px w-px'} src="/images/img4.jpg" />
+                  {/* <img src="/images/img1.jpg" />
                   <img src="/images/img2.jpg" />
-                  <img src="/images/img3.jpg" />
-                  <img src="/images/img4.jpg" />
-                  <img src="/images/img1.jpg" />
-                  <img src="/images/img2.jpg" />
-                  <img src="/images/img1.jpg" />
+                  <img src="/images/img1.jpg" /> */}
             </div>
             </section>
             <section className={'w-full mt-16'}>
@@ -187,6 +214,19 @@ export default function Home() {
                 <h3>Years of Experience</h3>
             </div>
         </div>
+            </section>
+            <section className={'mt-16 md:px-24 px-4 mb-16'}>
+              <div className="">
+                  <h2 className="font-medium md:text-3xl text-2xl text-center">
+                      Gallery
+                  </h2>
+                  <hr className="bg-blue-600 h-1 my-5 mx-8 md:mx-80" />
+                  <div className={'grid md:grid-cols-5 grid-cols-2 gap-1'}>
+                  {images.map((image, i) => (
+                    <GalleryComponent key={i} src={'/gallery' + image}  />
+                  ))}
+                </div>
+              </div>
             </section>
           </div>
         </main>
